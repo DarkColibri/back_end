@@ -1,0 +1,42 @@
+version: "3.2"
+services:
+  svc_hefamemodifstockminmaxws:
+    image: ${nexus3_host}:${nexus3_port}/hefamemodifstockminmaxwsservice:${hefamemodifstockminmaxwsservice_package_version}
+    environment:
+      - NODE_ENV=production
+      - TZ=Europe/Madrid
+    labels:
+      - "sec_type=internal"
+    volumes:
+      - aws_efs_app:/var/aws_efs_app
+    ports:
+      - 8080
+      - 8443
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: van-nov-saas-pro-nlb-ce27767202806be3.elb.eu-central-1.amazonaws.com:24224
+        tag: novSaasStack.svc_hefamemodifstockminmaxws
+        fluentd-sub-second-precision: 'true'
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
+      placement:
+        constraints: [node.role == worker]
+      # resources:
+      #   limits:
+      #     cpus: "0.1"
+      #     memory: 50M
+volumes:
+  aws_efs_app:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=fs-3e9ecb67.efs.eu-central-1.amazonaws.com,nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport
+      device: :/
+
+networks:
+  default:
+    external:
+      name: adminStack_nov_saas_network

@@ -1,0 +1,21 @@
+<%- layout('layouts/main') %>
+<h1>Load Flies</h1>
+
+<a href="/api/users">Usuarios</a>
+
+<br>
+<form action="/api/loadFile/upload" method="POST" enctype="multipart/form-data">
+  <input type="file" name="file">
+  <button type="submit">Upload File</button>
+</form>
+<br>
+<!-- MULTIPLE FILES -->
+<form action="/api/loadFile/uploadmultiple"  enctype="multipart/form-data" method="POST">
+  Select images: <input type="file" name="files" multiple>
+  <input type="submit" value="Upload your files"/>
+</form>
+<!--   PHOTO  -->
+<form action="/api/loadFile/upload/photo" enctype="multipart/form-data" method="POST"> 
+  <input type="file" name="myImage" accept="image/*" />
+  <input type="submit" value="Upload Photo"/>
+</form>

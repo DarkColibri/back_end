@@ -1,0 +1,50 @@
+{
+  "development": {
+    "username": "root",
+    "password": "ortega",
+    "database": "transmedia_schema",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "operatorsAliases": false,
+    "timezone": "Europe/Madrid",
+
+    "hefame_wsdl": "zws_modif_stock_min_max_t01.wsdl",
+    "hefame_proveedor": "0060200692",
+    "hefame_soap_username": "RFC_NOVARTIS",
+    "hefame_soap_password": "Hefame19T01",
+    "saas_mayorista": "hefame",
+    "saas_nfs_path": "/var/aws_efs_app",
+    "logging": false
+  },
+  "test": {
+    "username": "root",
+    "password": "password",
+    "database": "api_node_demo",
+    "host": "10.250.1.142",
+    "dialect": "mysql",
+    "operatorsAliases": false,
+    "timezone": "Europe/Madrid",
+    "hefame_wsdl": "zws_modif_stock_min_max_t01.wsdl",
+    "hefame_proveedor": "0060200692",
+    "hefame_soap_username": "RFC_NOVARTIS",
+    "hefame_soap_password": "Hefame19T01",
+    "saas_mayorista": "hefame",
+    "saas_nfs_path": "/var/aws_efs_app"
+  },
+  "production": {
+    "username": "root",
+    "password": "password",
+    "database": "api_node_demo",
+    "host": "10.250.1.142",
+    "dialect": "mysql",
+    "timezone": "Europe/Madrid",
+    "operatorsAliases": false,
+    "hefame_wsdl": "zws_modif_stock_min_max_P01.wsdl",
+    "hefame_proveedor": "0060200692",
+    "hefame_soap_username": "RFC_NOVARTIS",
+    "hefame_soap_password": "Hefame19P01",
+    "saas_mayorista": "hefame",
+    "saas_nfs_path": "/var/aws_efs_app",
+    "logging": false
+  }
+}
